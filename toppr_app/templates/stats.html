@@ -1,0 +1,27 @@
+{% from "sidebar.html" import sidebar_active with context %}
+{% from "macros.html" import flashed_messages_macro with context %}
+
+{% extends "layout.html" %}
+
+{% block title %}All Battle Statistics{% endblock %}
+
+{% block content %}
+
+{% include 'header.html' %}
+
+{{sidebar_active('Stats/Main Stats')}}
+
+
+<div class="col-md-10 col-md-offset-2 main">
+{{ flashed_messages_macro()}}
+<div class="container-fluid">
+    <h2>Battle Statistics</h2>
+    <div id='battle-statistics'>
+        <br>
+    </div>
+</div>
+</div>
+
+{% include 'footer.html' %}
+
+{% endblock %}

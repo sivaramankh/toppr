@@ -1,0 +1,7 @@
+## Python Modules
+
+flask
+flask-wtf
+pandas
+pymongo
+gunicorn

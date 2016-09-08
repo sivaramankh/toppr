@@ -1,0 +1,32 @@
+{% from "sidebar.html" import sidebar_active with context %}
+{% extends "layout.html" %}
+{% block title %}Search{% endblock %}
+
+{% block content %}
+    {% include 'header.html' %}
+    {{sidebar_active('List/List By Battle Number')}}
+
+<div class="col-md-8 col-md-offset-2 main">
+<div class="container-fluid">
+    <h2>List by Battle Number</h2>
+    <br>
+        <div class="form-group">
+            <label for="battle-number">Battle Number:</label>
+            <input class="form-control" id="battle-number" placeholder="5"></input>
+        </div>
+        <div class="form-group">
+            <button onclick="fetch_battle_data_no()" id="battle-submit" type="submit" class="btn btn-primary" style="">Get Battle Details</button>
+            <img id="fetch-data-loading" style="display: none;" src="../static/img/loading_spin.svg"></img>
+        </div>
+        <div id='single-battle-record'>
+            <br>
+
+        </div>
+
+
+</div>
+</div>
+
+{% include 'footer.html' %}
+
+{% endblock %}

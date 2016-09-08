@@ -1,0 +1,20 @@
+{% from "macros.html" import flashed_messages_macro with context %}
+
+{% extends "layout.html" %}
+
+{% block title %}Toppr{% endblock %}
+
+{% block content %}
+
+{% include 'header.html' %}
+
+
+<div class="col-md-12 main">
+{{ flashed_messages_macro()}}
+<div class="container-fluid">
+</div>
+</div>
+
+{% include 'footer.html' %}
+
+{% endblock %}

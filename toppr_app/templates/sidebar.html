@@ -1,0 +1,37 @@
+{% macro sidebar_active(name) %}
+<div class="col-md-2 sidebar">
+	<ul class="nav nav-sidebar">
+
+{% set sidebar_items = [('List', '#list', [('List All', '/list'), ('List by Battle Number', '/list/number')]),
+						('Search', '/search'),
+						('Stats', '#stats', [('Main Stats', '/stats/main')])] %}
+{% for item in sidebar_items %}
+	{% if item|length == 2 %}
+	 	{% if item[0] == name %}
+		  <li class="active"><a href="{{ item[1] }}">{{item[0]}}</a></li>
+		{% else %}
+	  	  <li><a href="{{ item[1] }}">{{item[0]}}</a></li>
+		{% endif %}
+	{% elif item|length == 3 %}
+		<li class="nav-header" data-toggle="collapse" data-target="{{item[1]}}">
+	    	<a href="#"> {{ item[0] }}  &nbsp;<i class="fa fa-angle-down pull-right"></i></a>
+	    </li>
+		{% if item[0] in name %}
+			<ul class="nav nav-list collapse in" id="{{ item[1][1:] }}">
+		{% else %}
+			<ul class="nav nav-list collapse" id="{{ item[1][1:] }}">
+		{% endif %}
+	 	{% for subitem in item[2] %}
+			{% if subitem[0] in name %}
+				<li class="active"><a href="{{ subitem[1] }}">{{ subitem[0] }}</a></li>
+			{% else %}
+				<li><a href="{{ subitem[1] }}">{{ subitem[0] }}</a></li>
+			{% endif %}
+		{% endfor %}
+		</ul>
+	{% endif %}
+
+{% endfor %}
+</ul>
+</div>
+{% endmacro %}

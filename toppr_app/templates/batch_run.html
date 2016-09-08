@@ -1,0 +1,39 @@
+{% from "sidebar.html" import sidebar_active with context %}
+{% extends "layout.html" %}
+{% block title %}Batch Run{% endblock %}
+
+{% block content %}
+    {% include 'header.html' %}
+    {{sidebar_active('Batch/Batch Run')}}
+
+<div class="col-md-10 col-md-offset-2 main">
+    <div class="container-fluid">
+        <h2>Batch Run</h2>
+        <div id="nhamp">
+                <h3>Batch AQMK Run</h3>
+                <p>Upload the loan data in xlsx format.</p>
+                <br>
+                <form enctype="multipart/form-data" method="post" id="nhamp-blob-upload">
+                    <div class="input-group">
+                        <span class="input-group-btn">
+                            <span class="btn btn-default btn-file">
+                                Browse <input type="file" id="nhamp-blob-parser-file" name="nhamp-file" accept=".csv" required>
+                            </span>
+                        </span>
+                        <input type="text" class="form-control" readonly>
+                    </div>
+                </form>
+                <br>
+                <br>
+                <div>
+                    <button onclick="parse_nhamp_blob()" id="nhamp-parse-submit" type="submit" class="btn btn-primary">Upload</button>
+                    <img id="nhamp-parse-loading" style="display: none;" src="../static/img/loading_spin.svg"></img>
+                    <a id="nhamp-parse-download" type="download" class="btn btn-success" style="display: none;" target="_blank">Download</a>
+                    <i id="nhamp-parse-error" class="fa fa-times fa-lg" style="display: none;"></i>
+                </div>
+            </div>
+        </div>
+</div>
+
+    {% include 'footer.html' %}
+{% endblock %}

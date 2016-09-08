@@ -1,0 +1,48 @@
+{% from "sidebar.html" import sidebar_active with context %}
+{% extends "layout.html" %}
+{% block title %}Search{% endblock %}
+
+{% block content %}
+    {% include 'header.html' %}
+    {{sidebar_active('Search')}}
+
+<div class="col-md-8 col-md-offset-2 main">
+<div class="container-fluid">
+    <h2>Search</h2>
+    <br>
+    <p>For searching multiple items in the same field, separate them by a comma without space.</p>
+        <div class="form-group">
+            <label for="battle-name">Name:</label>
+            <input class="form-control" id="battle-name" placeholder="Battle of the Golden Tooth,Battle at the Mummer's Ford"></input>
+        </div>
+        <div class="form-group">
+            <label for="attacker-king">Attacker King:</label>
+            <input class="form-control" id="attacker-king" placeholder="Joffrey/Tommen Baratheon"></input>
+        </div><div class="form-group">
+            <label for="defender-king">Defender King:</label>
+            <input class="form-control" id="defender-king" placeholder="Robb Stark"></input>
+        </div>
+        <div class="form-group">
+        <label for="battle-type">Battle Type:</label>
+        <input class="form-control" id="battle-type" placeholder="pitched battle,ambush"></input>
+        </div>
+        <div class="form-group">
+            <label for="battle-location">Location:</label>
+            <input class="form-control" id="battle-location" placeholder="Golden Tooth"></input>
+        </div>
+        <div class="form-group">
+            <button onclick="search_battle_record()" id="battle-submit" type="submit" class="btn btn-primary" style="">Get Battle Details</button>
+            <img id="fetch-data-loading" style="display: none;" src="../static/img/loading_spin.svg"></img>
+        </div>
+
+        <div id="search-results-data">
+            <br>
+        </div>
+
+
+</div>
+</div>
+
+{% include 'footer.html' %}
+
+{% endblock %}

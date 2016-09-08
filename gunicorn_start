@@ -1,0 +1,6 @@
+PROJDIR = /home/siva/toppr_files
+
+
+cd $PROJDIR
+source ../bin/activate
+gunicorn -c gunicorn_config.py toppr_app:app

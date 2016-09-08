@@ -1,0 +1,31 @@
+{% from "sidebar.html" import sidebar_active with context %}
+{% from "macros.html" import flashed_messages_macro with context %}
+
+{% extends "layout.html" %}
+
+{% block title %}All Battles List {% endblock %}
+
+{% block content %}
+
+{% include 'header.html' %}
+
+{{sidebar_active('List/List All')}}
+
+
+<div class="col-md-10 col-md-offset-2 main">
+{{ flashed_messages_macro()}}
+<div class="container-fluid">
+    <h1 id='battle-list-all'>Battle Records</h1>
+
+    <div id='battle-list-all-body'>
+
+        <br style="clear: both;">
+
+    </div>
+
+</div>
+</div>
+
+{% include 'footer.html' %}
+
+{% endblock %}
